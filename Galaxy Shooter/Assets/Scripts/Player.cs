@@ -9,13 +9,19 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-	void Start ()
+	public float speed = 3.5f;
+
+	private void Start ()
 	{
-		transform.position = new Vector3(0, 0, 0); //transform has a Vector3 position
+		transform.position = Vector3.zero;
 	}
-	
-	void Update () 
+
+	private void Update ()
 	{
-		
+		float horizontalInput = Input.GetAxis("Horizontal");
+		float verticalInput = Input.GetAxis("Vertical");
+
+		transform.Translate(Vector3.right * speed * horizontalInput * Time.deltaTime);
+		transform.Translate(Vector3.up * speed * verticalInput * Time.deltaTime);
 	}
 }
