@@ -9,7 +9,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-	public float speed = 3.5f;
+	[SerializeField]
+	private float speed = 3.5f;
 
 	private void Start ()
 	{
@@ -17,6 +18,11 @@ public class Player : MonoBehaviour
 	}
 
 	private void Update ()
+	{
+		Movement();
+	}
+
+	private void Movement()
 	{
 		float horizontalInput = Input.GetAxis("Horizontal");
 		float verticalInput = Input.GetAxis("Vertical");
