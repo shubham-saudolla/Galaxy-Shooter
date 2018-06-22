@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 {
 	[SerializeField]
 	private float speed = 3.5f;
+	public GameObject laserPrefab;
 
 	private void Start ()
 	{
@@ -20,6 +21,11 @@ public class Player : MonoBehaviour
 	private void Update ()
 	{
 		Movement();
+
+		if(Input.GetKeyDown(KeyCode.Space))
+		{
+			Instantiate(laserPrefab, transform.position + new Vector3(0, 0.88f, 0), Quaternion.identity);
+		}
 	}
 
 	private void Movement()
