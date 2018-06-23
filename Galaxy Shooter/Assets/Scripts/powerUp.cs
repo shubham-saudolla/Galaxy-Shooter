@@ -35,11 +35,12 @@ public class powerUp : MonoBehaviour
 				else if(powerupID == 1)
 				{
 					//enable speed boost
-					player.SpeedBoostPowerupOn();
+ 					player.SpeedBoostPowerupOn();
 				}
 				else if(powerupID == 2)
 				{
 					//enable shields
+					player.EnableShields();
 				}
 				else
 				{

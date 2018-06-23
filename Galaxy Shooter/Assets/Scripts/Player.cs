@@ -21,9 +21,13 @@ public class Player : MonoBehaviour
 
 	[SerializeField]
 	private float _fireRate = 0.25f;
+
 	private float _canFire = 0.0f;
+
 	public bool canTripleShot;
 	public bool speedBoostActive;
+	public bool shieldsActive = false;
+
 	public int lives = 3;
 
 	private void Start ()
@@ -96,6 +100,12 @@ public class Player : MonoBehaviour
 
 	public void Damage()
 	{
+		if(shieldsActive == true)
+		{
+			shieldsActive = false;
+			return;
+		}
+		
 		lives--;
 
 		if(lives < 1)
@@ -127,5 +137,10 @@ public class Player : MonoBehaviour
 	{
 		yield return new WaitForSeconds(5.0f);
 		speedBoostActive = false;
+	}
+
+	public void EnableShields()
+	{
+		shieldsActive = true;
 	}
 }
