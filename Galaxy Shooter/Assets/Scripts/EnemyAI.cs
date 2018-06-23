@@ -9,7 +9,10 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+	[SerializeField]
+	private GameObject _enemyExplosionPrefab;
 	private float _speed = 5.0f;
+
 	void Start ()
 	{
 		
@@ -38,7 +41,8 @@ public class EnemyAI : MonoBehaviour
 			{
 				Destroy(other.gameObject);
 			}
-			
+
+			Instantiate(_enemyExplosionPrefab, transform.position, Quaternion.identity);
 			Destroy(this.gameObject);
 		}
 		else if(other.tag == "Player")
@@ -50,6 +54,7 @@ public class EnemyAI : MonoBehaviour
 				player.Damage();
 			}
 
+			Instantiate(_enemyExplosionPrefab, transform.position, Quaternion.identity);
 			Destroy(this.gameObject);
 		}
 	}
