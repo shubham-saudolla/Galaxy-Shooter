@@ -35,6 +35,7 @@ public class powerUp : MonoBehaviour
 				else if(powerupID == 1)
 				{
 					//enable speed boost
+					player.SpeedBoostPowerupOn();
 				}
 				else if(powerupID == 2)
 				{
@@ -42,7 +43,7 @@ public class powerUp : MonoBehaviour
 				}
 				else
 				{
-					Debug.Log("Powerup with ID: " + powerupID + " not found")
+					Debug.Log("Powerup with ID: " + powerupID + " not found");
 				}
 				
 			}

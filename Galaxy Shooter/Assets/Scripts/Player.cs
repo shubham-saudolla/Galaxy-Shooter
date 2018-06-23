@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 	private float _fireRate = 0.25f;
 	private float _canFire = 0.0f;
 	public bool canTripleShot;
+	public bool speedBoostActive;
 
 	private void Start ()
 	{
@@ -42,8 +43,16 @@ public class Player : MonoBehaviour
 		float horizontalInput = Input.GetAxis("Horizontal");
 		float verticalInput = Input.GetAxis("Vertical");
 
-		transform.Translate(Vector3.right * _speed * horizontalInput * Time.deltaTime);
-		transform.Translate(Vector3.up * _speed * verticalInput * Time.deltaTime);
+		if(speedBoostActive)
+		{
+			transform.Translate(Vector3.right * _speed * 2.0f * horizontalInput * Time.deltaTime);
+			transform.Translate(Vector3.up * _speed * 2.0f * verticalInput * Time.deltaTime);
+		}
+		else
+		{
+			transform.Translate(Vector3.right * _speed * horizontalInput * Time.deltaTime);
+			transform.Translate(Vector3.up * _speed * verticalInput * Time.deltaTime);
+		}
 
 		//binding the player in the vertical direction
 		if(transform.position.y > 0)
@@ -92,5 +101,17 @@ public class Player : MonoBehaviour
 	{
 		yield return new WaitForSeconds(5.0f);
 		canTripleShot = false;
+	}
+
+	public void SpeedBoostPowerupOn()
+	{
+		speedBoostActive = true;
+		StartCoroutine(SpeedBoostDown());
+	}
+
+	public IEnumerator SpeedBoostDown()
+	{
+		yield return new WaitForSeconds(5.0f);
+		speedBoostActive = false;
 	}
 }
