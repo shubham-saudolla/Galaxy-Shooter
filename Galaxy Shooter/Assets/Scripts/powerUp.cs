@@ -25,7 +25,8 @@ public class powerUp : MonoBehaviour
 
 			if(player != null)
 			{
-				player.canTripleShot = true;
+				player.TripleShotPowerupOn(); //when you destroy an object with the coroutine, the coroutine gets destroyed
+				//thus we have used another function in player to call the coroutine and then destroyed the powerup
 			}
 			
 			Destroy(this.gameObject);
