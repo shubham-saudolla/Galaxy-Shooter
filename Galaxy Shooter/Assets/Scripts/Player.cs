@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
 	private GameObject _TripleShot;
 	[SerializeField]
 	private GameObject _explosionPrefab;
+	[SerializeField]
+	private GameObject _shieldGameObject;
 
 	[SerializeField]
 	private float _fireRate = 0.25f;
@@ -103,9 +105,10 @@ public class Player : MonoBehaviour
 		if(shieldsActive == true)
 		{
 			shieldsActive = false;
+			_shieldGameObject.SetActive(false);
 			return;
 		}
-		
+
 		lives--;
 
 		if(lives < 1)
@@ -142,5 +145,6 @@ public class Player : MonoBehaviour
 	public void EnableShields()
 	{
 		shieldsActive = true;
+		_shieldGameObject.SetActive(true);
 	}
 }
