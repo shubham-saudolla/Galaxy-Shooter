@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
 	private GameObject _laserPrefab;
 	[SerializeField]
 	private GameObject _TripleShot;
+	[SerializeField]
+	private GameObject _explosionPrefab;
 
 	[SerializeField]
 	private float _fireRate = 0.25f;
@@ -95,9 +97,10 @@ public class Player : MonoBehaviour
 	public void Damage()
 	{
 		lives--;
-		
+
 		if(lives < 1)
 		{
+			Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
 			Destroy(this.gameObject);
 		}
 	}

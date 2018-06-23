@@ -441,6 +441,8 @@ MonoBehaviour:
     type: 2}
   _TripleShot: {fileID: 1332379639944516, guid: 4ec34f335660f4a42a439c1cbf70064b,
     type: 2}
+  _explosionPrefab: {fileID: 1893245376638622, guid: c6f4331941830eb4f828413fe08b43f7,
+    type: 2}
   _fireRate: 0.25
   canTripleShot: 0
   speedBoostActive: 0
