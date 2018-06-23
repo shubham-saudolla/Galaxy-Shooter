@@ -484,7 +484,7 @@ MonoBehaviour:
   enemyShipPrefab: {fileID: 1186452294379654, guid: 039cc08ba566e864d908a44f40aefd9e,
     type: 2}
   powerUps:
-  - {fileID: 1332379639944516, guid: 4ec34f335660f4a42a439c1cbf70064b, type: 2}
+  - {fileID: 1271554420219678, guid: 58120c6ffc486604ebb97b031c4ed33e, type: 2}
   - {fileID: 1335264170168618, guid: f1aac9e0219ea0d49bc530cf6d1821b0, type: 2}
   - {fileID: 1147500803891644, guid: a7318e168099fc34684bfe644fa56b9b, type: 2}
 --- !u!1 &1678462825

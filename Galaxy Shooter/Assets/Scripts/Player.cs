@@ -102,6 +102,7 @@ public class Player : MonoBehaviour
 
 	public void Damage()
 	{
+		// Debug.Log("Number of lives: " + lives);
 		if(shieldsActive == true)
 		{
 			shieldsActive = false;
