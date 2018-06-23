@@ -23,6 +23,11 @@ public class laser : MonoBehaviour
 
 		if(transform.position.y > 6)
 		{
+			if(transform.parent != null)
+			{
+				Destroy(transform.parent.gameObject); //gotta delete the gameObject of the parent of the transform!
+			}
+
 			Destroy(this.gameObject);
 		}
 	}

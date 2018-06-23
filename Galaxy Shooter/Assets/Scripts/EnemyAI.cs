@@ -25,4 +25,32 @@ public class EnemyAI : MonoBehaviour
 			transform.position = new Vector3(randomX, 7, 0);
 		}
 	}
+
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		if(other.tag == "Laser")
+		{
+			if(other.transform.parent != null)
+			{
+				Destroy(other.transform.parent.gameObject); //have to delete the gameObject of the parent
+			}
+			else
+			{
+				Destroy(other.gameObject);
+			}
+			
+			Destroy(this.gameObject);
+		}
+		else if(other.tag == "Player")
+		{
+			Player player = other.GetComponent<Player>(); //getting the script component
+
+			if(player != null)
+			{
+				player.Damage();
+			}
+
+			Destroy(this.gameObject);
+		}
+	}
 }

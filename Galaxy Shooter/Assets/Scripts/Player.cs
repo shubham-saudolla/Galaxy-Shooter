@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
 	private float _canFire = 0.0f;
 	public bool canTripleShot;
 	public bool speedBoostActive;
+	public int lives = 3;
 
 	private void Start ()
 	{
@@ -89,6 +90,16 @@ public class Player : MonoBehaviour
 
 				_canFire = Time.time + _fireRate;
 			}
+	}
+
+	public void Damage()
+	{
+		lives--;
+		
+		if(lives < 1)
+		{
+			Destroy(this.gameObject);
+		}
 	}
 
 	public void TripleShotPowerupOn()
