@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
 
 	private UIManager _uiManager;
 	private GameManager _gameManager;
+	private SpawnManager _spawnManager;
 
 	[SerializeField]
 	private float _fireRate = 0.25f;
@@ -41,10 +42,16 @@ public class Player : MonoBehaviour
 
 		_uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
 		_gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+		_spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
 		
 		if(_uiManager != null)
 		{
 			_uiManager.UpdateLives(lives);
+		}
+
+		if(_spawnManager != null)
+		{
+			_spawnManager.StartSpawnRoutines();
 		}
 	}
 
@@ -121,7 +128,7 @@ public class Player : MonoBehaviour
 		}
 
 		lives--;
-		Debug.Log("Damaging player");
+		// Debug.Log("Damaging player");
 		_uiManager.UpdateLives(lives);
 
 		if(lives < 1)
