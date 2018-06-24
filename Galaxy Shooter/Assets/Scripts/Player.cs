@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
 	[SerializeField]
 	private GameObject _shieldGameObject;
 
+	private UIManager _uiManager;
+
 	[SerializeField]
 	private float _fireRate = 0.25f;
 
@@ -35,6 +37,13 @@ public class Player : MonoBehaviour
 	private void Start ()
 	{
 		transform.position = Vector3.zero;
+
+		_uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+		
+		if(_uiManager != null)
+		{
+			_uiManager.UpdateLives(lives);
+		}
 	}
 
 	private void Update ()
@@ -102,7 +111,6 @@ public class Player : MonoBehaviour
 
 	public void Damage()
 	{
-		// Debug.Log("Number of lives: " + lives);
 		if(shieldsActive == true)
 		{
 			shieldsActive = false;
@@ -111,6 +119,7 @@ public class Player : MonoBehaviour
 		}
 
 		lives--;
+		_uiManager.UpdateLives(lives);
 
 		if(lives < 1)
 		{
