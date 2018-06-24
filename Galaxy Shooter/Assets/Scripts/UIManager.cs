@@ -18,14 +18,28 @@ public class UIManager : MonoBehaviour
 {
 	public Sprite[] lives;
 	public Image livesImageDisplay;
+	public Text scoreText;
+	public int score;
+
+	private void Start()
+	{
+		score = 0;
+		DisplayScore();
+	}
 
 	public void UpdateLives(int currentLives)
 	{
 		livesImageDisplay.sprite = lives[currentLives];
 	}
 
-	public void UpdateScore()
+	public void AddScore()
 	{
+		score  = score + 10;
+		DisplayScore();
+	}
 
+	public void DisplayScore()
+	{
+		scoreText.text = "Score: " + score.ToString();
 	}
 }

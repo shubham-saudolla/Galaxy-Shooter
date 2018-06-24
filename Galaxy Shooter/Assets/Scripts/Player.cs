@@ -119,6 +119,7 @@ public class Player : MonoBehaviour
 		}
 
 		lives--;
+		Debug.Log("Damaginf player");
 		_uiManager.UpdateLives(lives);
 
 		if(lives < 1)
