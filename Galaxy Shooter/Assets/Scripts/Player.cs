@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
 	private GameObject _shieldGameObject;
 
 	private UIManager _uiManager;
+	private GameManager _gameManager;
 
 	[SerializeField]
 	private float _fireRate = 0.25f;
@@ -39,6 +40,7 @@ public class Player : MonoBehaviour
 		transform.position = Vector3.zero;
 
 		_uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+		_gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 		
 		if(_uiManager != null)
 		{
@@ -119,13 +121,15 @@ public class Player : MonoBehaviour
 		}
 
 		lives--;
-		Debug.Log("Damaginf player");
+		Debug.Log("Damaging player");
 		_uiManager.UpdateLives(lives);
 
 		if(lives < 1)
 		{
 			Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
 			Destroy(this.gameObject);
+			_gameManager.gameOver = true;
+			_uiManager.ShowTitleScreen();
 		}
 	}
 

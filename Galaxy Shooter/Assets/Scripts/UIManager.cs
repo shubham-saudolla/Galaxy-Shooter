@@ -19,12 +19,24 @@ public class UIManager : MonoBehaviour
 	public Sprite[] lives;
 	public Image livesImageDisplay;
 	public Text scoreText;
+	public GameObject titleScreen;
 	public int score;
 
 	private void Start()
 	{
 		score = 0;
 		DisplayScore();
+	}
+
+	public void ShowTitleScreen()
+	{
+		titleScreen.SetActive(true);
+	}
+
+	public void HideTitleScreen()
+	{
+		titleScreen.SetActive(false);
+		scoreText.text = "Score: 0";
 	}
 
 	public void UpdateLives(int currentLives)
