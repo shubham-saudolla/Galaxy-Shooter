@@ -15,9 +15,10 @@ public class SpawnManager : MonoBehaviour
 	private GameObject[] powerUps;
 	private GameManager _gameManager;
 
-	void Start ()
+	public void Start ()
 	{
 		_gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
 		StartSpawnRoutines();
 	}
 

@@ -34,12 +34,16 @@ public class Player : MonoBehaviour
 	public bool speedBoostActive;
 	public bool shieldsActive = false;
 	private AudioSource _audioSource;
+	[SerializeField]
+	private GameObject[] _engines;
 
 	public int lives = 3;
+	private int _hitCount = 0;
 
 	private void Start ()
 	{
 		transform.position = Vector3.zero;
+		_hitCount = 0;
 
 		_uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
 		_gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -109,7 +113,7 @@ public class Player : MonoBehaviour
 		if(Time.time > _canFire)
 			{
 				_audioSource.Play();
-				
+
 				if(canTripleShot == true)
 				{
 					Instantiate(_TripleShot, transform.position, Quaternion.identity);
@@ -125,24 +129,39 @@ public class Player : MonoBehaviour
 
 	public void Damage()
 	{
+
 		if(shieldsActive == true)
 		{
 			shieldsActive = false;
 			_shieldGameObject.SetActive(false);
 			return;
 		}
-
-		lives--;
-		// Debug.Log("Damaging player");
-		_uiManager.UpdateLives(lives);
-
-		if(lives < 1)
+		else
 		{
-			Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
-			Destroy(this.gameObject);
-			_gameManager.gameOver = true;
-			_uiManager.ShowTitleScreen();
+			lives--;
+			_hitCount++;
+			
+			if(_hitCount == 1)
+			{
+				_engines[0].SetActive(true);
+			}
+			else if(_hitCount == 2)
+			{
+				_engines[1].SetActive(true);
+			}
+		
+			_uiManager.UpdateLives(lives);
+
+			if(lives < 1)
+			{
+				Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+				Destroy(this.gameObject);
+				_gameManager.gameOver = true;
+				_uiManager.ShowTitleScreen();
+			}
 		}
+
+		
 	}
 
 	public void TripleShotPowerupOn()
