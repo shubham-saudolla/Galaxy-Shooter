@@ -14,6 +14,8 @@ public class EnemyAI : MonoBehaviour
 	private UIManager _uiManager;
 	
 	private float _speed = 5.0f;
+	[SerializeField]
+	private AudioClip _clip;
 
 	void Start ()
 	{
@@ -45,7 +47,9 @@ public class EnemyAI : MonoBehaviour
 			}
 
 			_uiManager.AddScore();
+
 			Instantiate(_enemyExplosionPrefab, transform.position, Quaternion.identity);
+			AudioSource.PlayClipAtPoint(_clip, Camera.main.transform.position);
 			Destroy(this.gameObject);
 		}
 		else if(other.tag == "Player")
@@ -58,6 +62,7 @@ public class EnemyAI : MonoBehaviour
 			}
 
 			Instantiate(_enemyExplosionPrefab, transform.position, Quaternion.identity);
+			AudioSource.PlayClipAtPoint(_clip, Camera.main.transform.position);
 			Destroy(this.gameObject);
 		}
 	}

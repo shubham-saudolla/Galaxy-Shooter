@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
 	public bool canTripleShot;
 	public bool speedBoostActive;
 	public bool shieldsActive = false;
+	private AudioSource _audioSource;
 
 	public int lives = 3;
 
@@ -53,6 +54,8 @@ public class Player : MonoBehaviour
 		{
 			_spawnManager.StartSpawnRoutines();
 		}
+
+		_audioSource = GetComponent<AudioSource>();
 	}
 
 	private void Update ()
@@ -105,6 +108,8 @@ public class Player : MonoBehaviour
 	{
 		if(Time.time > _canFire)
 			{
+				_audioSource.Play();
+				
 				if(canTripleShot == true)
 				{
 					Instantiate(_TripleShot, transform.position, Quaternion.identity);

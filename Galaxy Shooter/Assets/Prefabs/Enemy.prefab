@@ -80,6 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyExplosionPrefab: {fileID: 1841057763641106, guid: a6773bfccb2437a4fb8aaf8f51688f5f,
     type: 2}
+  _clip: {fileID: 8300000, guid: a885c043fab7e46438bba03ba9dab6bc, type: 3}
 --- !u!212 &212528355251804694
 SpriteRenderer:
   m_ObjectHideFlags: 1
