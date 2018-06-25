@@ -693,7 +693,7 @@ MonoBehaviour:
   powerUps:
   - {fileID: 1271554420219678, guid: 58120c6ffc486604ebb97b031c4ed33e, type: 2}
   - {fileID: 1335264170168618, guid: f1aac9e0219ea0d49bc530cf6d1821b0, type: 2}
-  - {fileID: 1147500803891644, guid: a7318e168099fc34684bfe644fa56b9b, type: 2}
+  - {fileID: 1838611337227186, guid: 93f21d48bf6e9cb4296f58072258e8a7, type: 2}
 --- !u!1 &1427685418
 GameObject:
   m_ObjectHideFlags: 0

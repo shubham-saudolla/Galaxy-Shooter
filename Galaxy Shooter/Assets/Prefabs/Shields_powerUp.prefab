@@ -9,19 +9,20 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1147500803891644}
+  m_RootGameObject: {fileID: 1838611337227186}
   m_IsPrefabParent: 1
---- !u!1 &1147500803891644
+--- !u!1 &1838611337227186
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4916682837874016}
-  - component: {fileID: 212452414903546782}
-  - component: {fileID: 58737742258904688}
-  - component: {fileID: 114576718700898416}
+  - component: {fileID: 4668322207398906}
+  - component: {fileID: 212121912548796922}
+  - component: {fileID: 58981745108960736}
+  - component: {fileID: 114069052300501896}
+  - component: {fileID: 95334434981112198}
   m_Layer: 0
   m_Name: Shields_powerUp
   m_TagString: Untagged
@@ -29,12 +30,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4916682837874016
+--- !u!4 &4668322207398906
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1147500803891644}
+  m_GameObject: {fileID: 1838611337227186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3.1, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
@@ -42,12 +43,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58737742258904688
+--- !u!58 &58981745108960736
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1147500803891644}
+  m_GameObject: {fileID: 1838611337227186}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -57,12 +58,30 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.34}
   serializedVersion: 2
   m_Radius: 1.54
---- !u!114 &114576718700898416
+--- !u!95 &95334434981112198
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1838611337227186}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 845bf745e48879f4e92d94db7b4ec3c9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114069052300501896
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1147500803891644}
+  m_GameObject: {fileID: 1838611337227186}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d929a634e61d8794395aadc6a00e684a, type: 3}
@@ -71,12 +90,12 @@ MonoBehaviour:
   _speed: 3
   powerupID: 2
   _audioClip: {fileID: 8300000, guid: 5ee343246919d2b4bba63ae629e95494, type: 3}
---- !u!212 &212452414903546782
+--- !u!212 &212121912548796922
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1147500803891644}
+  m_GameObject: {fileID: 1838611337227186}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
